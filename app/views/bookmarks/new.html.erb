@@ -1,0 +1,36 @@
+<div class="card">
+  <h2>ブックマーク作成</h2>
+
+  <%= form_with(model: @bookmark, local: true) do |form| %>
+    <% if @bookmark.errors.any? %>
+      <div class="error-messages">
+        <ul>
+          <% @bookmark.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="field">
+      <%= form.label :title, "タイトル" %>
+      <%= form.text_field :title %>
+    </div>
+
+    <div class="field">
+      <%= form.label :url, "URL" %>
+      <%= form.text_field :url %>
+    </div>
+
+    <div class="actions">
+      <%= form.submit "保存" %>
+    </div>
+  <% end %>
+</div>
+
+  <%= f.label :title, 'タイトル' %>
+  <%= f.text_field :title %>
+  <%= f.label :url, 'URL' %>
+  <%= f.text_field :url %>
+  <%= f.submit '登録' %>
+<% end %>
